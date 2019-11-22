@@ -33,10 +33,10 @@ app.get('/', (req, res) => {
     res.send('It is working!');
 })
 
-//app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
-app.post('/signin', (req, res) => { 
-    res.send('Signin working!'); 
-})
+app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
+// app.post('/signin', (req, res) => { 
+//     res.send('Signin working!'); 
+// })
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
