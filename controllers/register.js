@@ -1,7 +1,8 @@
 const handleRegister = (req, res, db, bcrypt) => {
     const { username, email, password } = req.body;
     if(!email || !username || !password) {
-      return  res.status(400).json('email or user or password not received');
+      //return  res.status(400).json('email or user or password not received');
+      return res.send(req.body);
     }
     const hash = bcrypt.hashSync(password);
     console.log("before transaction");
