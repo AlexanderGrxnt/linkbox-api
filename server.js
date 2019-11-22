@@ -19,11 +19,11 @@ const db = knex({
 
 const app = express();
 
-app.use(session({
-	secret: 'linkbox',
-	resave: true,
-	saveUninitialized: true
-}));
+// app.use(session({
+// 	secret: 'linkbox',
+// 	resave: true,
+// 	saveUninitialized: true
+// }));
 
 app.use(bodyParser.json());
 app.use(cors())
