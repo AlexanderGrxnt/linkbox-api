@@ -26,7 +26,8 @@ const app = express();
 // }));
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 
 app.get('/', (req, res) => {
