@@ -28,6 +28,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+app.set('views', __dirname + '/views');
 app.engine('ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
 
@@ -48,7 +49,7 @@ app.get('/profile',function(req,res){
     sesh = req.session;
     if(sesh.email) {
       var email = 'hello';
-      res.render(__dirname + "views/profile.ejs", {email:email});
+      res.render("profile.ejs", {email:email});
     } else {
       res.write('<h1>login first.</h1>');
       res.end('<a href="views/index.html">Login</a>');
