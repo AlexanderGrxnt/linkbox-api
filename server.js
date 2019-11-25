@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     sesh = req.session; 
     if(sesh.email) {
       let email = sesh.email;
-      res.render(__dirname + "views/profile.html", {email:email});
+      res.render(__dirname + "views/profile.ejs", {email:email});
     } else {
       res.sendFile('index.html', {root : __dirname + '/views'});
     }
