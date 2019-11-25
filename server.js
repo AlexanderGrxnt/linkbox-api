@@ -19,11 +19,11 @@ const db = knex({
 
 const app = express();
 
-// app.use(session({
-// 	secret: 'linkbox',
-// 	resave: true,
-// 	saveUninitialized: true
-// }));
+app.use(session({
+	secret: 'linkbox',
+	resave: true,
+	saveUninitialized: true
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,18 +35,18 @@ app.get('/', (req, res) => {
 })
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
-// app.post('/signin', (req, res) => { 
-//     res.send('Signin working!'); 
-// })
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
+
+
+
 
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`app is running on port ${process.env.PORT}`);
 })
 
-app.get('/alexander', (req, res) => {
+app.get('/:username', (req, res) => {
     res.render('views/alexander');
 })
 
