@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
     if(sesh.email) {
       res.redirect('/profile');
     } else {
-      res.sendFile('index.html');
+      res.sendFile('index.html', {root : __dirname + '/views'});
     }
 })
 
