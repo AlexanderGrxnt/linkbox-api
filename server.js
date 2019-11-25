@@ -28,8 +28,8 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+// app.engine('html', require('ejs').renderFile);
+// app.set('view engine', 'html');
 
 var sesh;
 
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
     if(sesh.email) {
       res.redirect('/profile');
     } else {
-      res.render('index.html');
+      res.sendFile('index.html');
     }
 })
 
