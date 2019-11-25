@@ -28,6 +28,8 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 var sesh;
 
