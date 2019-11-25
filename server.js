@@ -46,11 +46,10 @@ app.get('/', (req, res) => {
 app.get('/profile',function(req,res){
     sesh = req.session;
     if(sesh.email) {
-      res.write('<h1>Hello '+sesh.email+'</h1>');
-      res.end('<a href="+">Logout</a>');
+      res.sendFile('profile.html', {root : __dirname + '/views'});
     } else {
       res.write('<h1>login first.</h1>');
-      res.end('<a href="+">Login</a>');
+      res.end('<a href="views/index.html">Login</a>');
     }
   });
 
