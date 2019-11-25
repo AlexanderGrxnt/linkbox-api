@@ -28,7 +28,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.engine('ejs', require('ejs').renderFile);
+app.engine('ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
 
 var sesh;
