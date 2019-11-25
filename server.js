@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 app.get('/profile',function(req,res){
     sesh = req.session;
     if(sesh.email) {
-      res.sendFile('profile.ejs', {root : __dirname + '/views'});
+      res.render('profile.ejs', {root : __dirname + '/views'});
     } else {
       res.write('<h1>login first.</h1>');
       res.end('<a href="views/index.html">Login</a>');
