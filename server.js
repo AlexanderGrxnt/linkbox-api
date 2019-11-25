@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 
 app.get('/profile',function(req,res){
     sesh = req.session;
-    if(ssn.email) {
+    if(sesh.email) {
       res.write('<h1>Hello '+sesh.email+'</h1>');
       res.end('<a href="+">Logout</a>');
     } else {
