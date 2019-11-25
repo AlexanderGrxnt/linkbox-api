@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 app.get('/profile',function(req,res){
     sesh = req.session;
     if(sesh.email) {
-      var email = 'hello';
+      var email = sesh.email;
       res.render("profile.ejs", {email:email});
     } else {
       res.write('<h1>login first.</h1>');
