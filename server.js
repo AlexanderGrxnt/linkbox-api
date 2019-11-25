@@ -29,10 +29,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+var sesh;
 
+//SERVER START
 app.get('/', (req, res) => {
-    res.send('It is working!');
+    sesh = req.session; 
+    if(sesh.email) {
+      res.redirect('/profile');
+    } else {
+      res.render('index.html');
+    }
 })
+
+app.get('/profile',function(req,res){
+    sesh = req.session;
+    if(ssn.email) {
+      res.write('<h1>Hello '+sesh.email+'</h1>');
+      res.end('<a href="+">Logout</a>');
+    } else {
+      res.write('<h1>login first.</h1>');
+      res.end('<a href="+">Login</a>');
+    }
+  });
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 
