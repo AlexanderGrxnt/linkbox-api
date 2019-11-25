@@ -54,7 +54,7 @@ app.get('/profile',function(req,res){
     }
   });
 
-app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
+app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, sesh) })
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 

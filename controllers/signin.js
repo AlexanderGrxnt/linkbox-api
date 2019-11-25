@@ -1,4 +1,4 @@
-const handleSignin = (req, res, db, bcrypt) => {
+const handleSignin = (req, res, db, bcrypt, sesh) => {
     const { email, password } = req.body;
     if(!email || !password) {
         return  res.status(400).json('incorrect form submission');
@@ -13,6 +13,7 @@ const handleSignin = (req, res, db, bcrypt) => {
             .then(user => {
                 //res.json(user[0])
                 //res.redirect(`http://127.0.0.1:8080/${user[0].username}.html`);
+                 
                 sesh.email = user[0].email;
                 res.end('done');
             })
