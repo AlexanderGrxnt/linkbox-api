@@ -47,6 +47,6 @@ app.listen(process.env.PORT || 3000, () => {
 })
 
 app.get('/alexander', (req, res) => {
-    res.redirect('./views/alexander.html');
+    res.render('views/alexander');
 })
 
