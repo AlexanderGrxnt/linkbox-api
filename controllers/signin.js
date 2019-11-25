@@ -12,7 +12,7 @@ const handleSignin = (req, res, db, bcrypt) => {
             .where('email', '=', email)
             .then(user => {
                 //res.json(user[0])
-                res.send('Signed in!');
+                res.redirect('/alexander.html');
             })
           .catch(err => res.status(400).json('unable to get user'))
         } else {
