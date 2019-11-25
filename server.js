@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
-// const session = require('express-session');
+const session = require('express-session');
 // const path = require('path');
 
 const register = require('./controllers/register');
@@ -44,5 +44,9 @@ app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcry
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`app is running on port ${process.env.PORT}`);
+})
+
+app.get('/alexander', (req, res) => {
+    res.redirect('./views/alexander.html');
 })
 
