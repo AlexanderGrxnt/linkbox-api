@@ -13,9 +13,9 @@ const handleSignin = (req, res, db, bcrypt, sesh) => {
             .then(user => {
                 //res.json(user[0])
                 //res.redirect(`http://127.0.0.1:8080/${user[0].username}.html`);
-                 
+                sesh = req.session; 
                 sesh.email = user[0].email;
-                res.end('done');
+                res.redirect('/profile');
             })
           .catch(err => res.status(400).json('unable to get user'))
         } else {
