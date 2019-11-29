@@ -1,17 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile Page</title>
+    <title>Profile Page: <%= username %></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="./css/profile_style.css">
+    <link rel="stylesheet" id="dm-fonts-css"
+        href="https://fonts.googleapis.com/css?family=Work+Sans:300,500,700,800|Material+Icons" type="text/css"
+        media="all">
 </head>
-<body>
-    
-    <h1>Profile: <span id="username">Test</span></h1>
-    
-    <p>Email: <span id="email"> <%= email %> </span></p>
 
-    <!-- <script>let email = "<%= email %>";</script> -->
+<body>
+    <h2 class="title">Edit Profile</h2>
+
+    <div class="close-panel"></div>
+
+
+    <section class="phone-container">
+
+        <div class="arrow arrow-up"></div>
+        <div class="arrow arrow-down"></div>
+        <div class="controls">
+            <div class="colours top-colour">
+                <label for="base-top">Top:</label>
+                <input class="colour-picker" id="base-top" type="color" name="base-top" value="#72A1E7">
+            </div>
+
+            <div class="colours bottom-colour">
+                <label for="base-top">Bottom:</label>
+                <input class="colour-picker" id="base-btm" type="color" name="base-btm" value="#e0fbf8">
+            </div>
+        </div>
+
+        <div class="top-dip">
+            <div class="camera"></div>
+            <div class="camera"></div>
+        </div>
+        <div class=" home-button"></div>
+        <div class="phone-button volume-up"></div>
+        <div class="phone-button volume-down"></div>
+        <div class="phone-button power-button"></div>
+        <nav>
+            <div>
+                <img class="logo" src="./logos/olive_tree.png" alt="logo">
+            </div>
+            <!-- <div class="profile-background"> -->
+                <div class="image-cropper">
+                    <img class="profile" id="profile-pic" src="./logos/plus_image.png" alt="profile">
+                </div>
+            <!-- </div> -->
+            <div class="profile-modal">
+                <input class="username-input" type="text" name="userM" id="userM" placeholder="Username" required>
+                <div class="social-btns">
+                    <p class="instagramM">Instagram
+                            
+                    </p>
+                    <p id="or">or</p>
+                    <p class="twitterM">Twitter</p>
+                </div>
+                <div class="checkmark draw"></div>
+            </div>
+            <div class="name">@<%= username %></div>
+        </nav>
+        <content>
+            <div class="link"><img class="media facebook" src="logos/facebook_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media instagram" src="./logos/Instagram_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media twitter" src="./logos/twitter_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media gmail" src="./logos/gmail_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media snapchat" src="./logos/snapchat_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media youtube" src="./logos/youtube_logo.png" alt="facebook"></div>
+        </content>
+
+        <div class="edit-buttons">
+            <p class="preview">Preview</p>
+            <p class="save">Save</p>
+        </div>
+
+    </section>
+
+    <script>
+        const inputs = document.querySelectorAll('.controls input');
+        function handleUpdate() {
+            const suffix = this.dataset.sizing || '';
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+        }
+        inputs.forEach(input => input.addEventListener('change', handleUpdate));
+        inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+    </script>
+    <script src="./javascript/instagramPhoto.js"></script>
+
+
 </body>
+
 </html>

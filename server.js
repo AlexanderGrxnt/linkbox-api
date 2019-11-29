@@ -29,6 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.set('views', __dirname + '/views');
+app.use( express.static( "public" ) );
 app.engine('ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
 
@@ -49,7 +50,11 @@ app.get('/profile',function(req,res){
     sesh = req.session;
     if(sesh.email) {
       var email = sesh.email;
-      res.render("profile.ejs", {email:email});
+      var username = sesh.username
+      res.render("profile.ejs", {
+        email:email,
+        username: username
+      });
     } else {
       res.write('<h1>login first.</h1>');
       res.end('<a href="views/index.html">Login</a>');
@@ -60,6 +65,16 @@ app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, se
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
+// app.get('/signin',(req,res) => {
+//   sesh = req.session;
+//   var email = "alex@gmail.com";
+//   var username = "AlexanderGrxnt";
+//   res.render("profile.ejs", {
+//     email: email,
+//     username: username
+//   });
+  
+// });
 
 
 
