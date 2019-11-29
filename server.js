@@ -50,7 +50,7 @@ app.get('/profile',function(req,res){
     sesh = req.session;
     if(sesh.email) {
       var email = sesh.email;
-      var username = sesh.username
+      var username = sesh.username;
       res.render("profile.ejs", {
         email:email,
         username: username
