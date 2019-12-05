@@ -190,7 +190,7 @@ function deleteButtonClicked(linkNum, self) {
 
 function deleteMedia() {
   this.src = "./logos/add_image.png";
-  this.className -= ' media-shake';
+  this.classList.remove("media-shake");
 }
 //END OF DELETE
 
