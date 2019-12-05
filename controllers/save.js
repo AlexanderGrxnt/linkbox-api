@@ -1,12 +1,15 @@
 const handleSave = (req, res, db, sesh) => {
     const { url } = req.body;
-    db.transaction(trx => {
-        db('users').transacting(trx)
-        .where({username: sesh.username})
-        .update({profile_img: url})
-        .then(user => {
-            res.send('Registered!');
-        })
+    console.log(sesh.username);
+    
+    db('users').where('username', '=', sesh.username)
+    .update('profile_img', url)
+    .then(user => {
+        res.send('Registered!');
+        console.log("registered");
+    })
+
+        // db.transaction(trx => {
         // trx.insert({
             
         //     hash: hash,
@@ -27,9 +30,9 @@ const handleSave = (req, res, db, sesh) => {
         //                 res.send('Registered!');
         //             })
              
-        .then(trx.commit)
-        .catch(trx.rollback)
-        })
+        // .then(trx.commit)
+        // .catch(trx.rollback)
+        // })
 }
 
 module.exports = {
