@@ -3,13 +3,13 @@ const handleSave = (req, res, db, sesh) => {
     
     let username = sesh.username;
     console.log(username);
-    db('users').where('username', username)
-    .update({profile_img: url})
-    .then(user => {
+    console.log(url);
+    db('users').where('username',username).update({
+        profile_img:url
+    }).then(user => {
         res.send('Registered!');
         console.log("registered");
-    })
-    .catch(err => res.status(400).json('unable to save'))
+    }).catch(err => res.status(400).json('unable to save'))
 
         // db.transaction(trx => {
         // trx.insert({
