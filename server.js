@@ -58,7 +58,7 @@ app.get('/profile',function(req,res){
       });
     } else {
       res.write('<h1>login first.</h1>');
-      res.end('<a href="/index.html">Login</a>');
+      res.end('<a href="/">Login</a>');
     }
   });
 
