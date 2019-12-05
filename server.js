@@ -8,6 +8,7 @@ const session = require('express-session');
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
+const save = require('./controllers/save');
 
 const db = knex({
     client: 'pg',
@@ -64,6 +65,8 @@ app.get('/profile',function(req,res){
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, sesh) })
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
+
+app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
 
 
 //OFFLINE TEST

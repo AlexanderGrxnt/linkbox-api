@@ -6,9 +6,11 @@ let profileModal = document.getElementsByClassName('profile-modal')[0];
 let instagramBtn = document.getElementsByClassName('instagramM')[0];
 let checkmark = document.getElementsByClassName('checkmark')[0];
 const closePanel = document.getElementsByClassName('close-panel')[0];
+let profileURL;
 //CREATE DELETE BUTTONS
 let links = document.getElementsByClassName("link");
 const previewButton = document.getElementsByClassName('preview')[0];
+const saveButton = document.getElementsByClassName('save')[0];
 let deleteButtons = document.getElementsByClassName("delete-button");
 //SET MEDIA LINKS
 let media = document.getElementsByClassName("media");
@@ -20,7 +22,7 @@ let linkArr = new Array(6).fill(null);
 let logoArr = ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'email'];
 let previewMode = false;
 let currentMedia;
-
+const domain = String(window.location.origin);
 
 //GET PROFILE PIC
 function getProfileInstagram() {
@@ -32,7 +34,7 @@ function getProfileInstagram() {
   if (validation) {
 
     //GET URL
-    let profileURL;
+    
     let endpoint = `https://www.instagram.com/${a}/?__a=1`;
 
     fetch(endpoint)
@@ -96,7 +98,7 @@ function previewClicked() {
   let colourPickers = document.getElementsByClassName("controls")[0];
   colourPickers.style.visibility = 'hidden';
   for (var j = 0; j < deleteButtons.length; j++) {
-    let domain = String(window.location.origin);
+    //let domain = String(window.location.origin);
     let source = `${domain}/logos/add_image.png`;
     let sibling = deleteButtons[j].previousElementSibling;
     let parent = deleteButtons[j].parentElement;
@@ -128,7 +130,7 @@ for (let i = 0; i < media.length; i++) {
 function showLinkModal(i) {
   if(previewMode) return;
 
-  let domain = String(window.location.origin);
+  //let domain = String(window.location.origin);
   let source = `${domain}/logos/add_image.png`;
   currentMedia = i;
   if(media[i].src !== source){
@@ -167,7 +169,7 @@ function saveLink(){
 function saveLogo(){
   let logoInput = document.getElementById("logoM");
   logoArr[currentMedia] = logoInput.value;
-  let domain = String(window.location.origin);
+  
   media[currentMedia].src = `${domain}/logos/${logoInput.value}_logo.png`
   hideLinkModal();
 }
@@ -195,12 +197,12 @@ function deleteMedia() {
 //END OF DELETE
 
 //SAVE BUTTON
-function savePressed(){
-  fetch('https://whispering-eyrie-76092.herokuapp.com/imageurl', {
-      method: 'post',
+function saveClicked(){
+  fetch(`${domain}/save`, {
+      method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        input: this.state.input
+        profileAddress: profileURL
       })
   })
 }
@@ -209,4 +211,5 @@ function savePressed(){
 profilePic.addEventListener("click", showProfileModal);
 checkmark.addEventListener("animationend", hideProfileModal);
 previewButton.addEventListener("click", previewClicked);
+saveButton.addEventListener("click", saveClicked);
 
