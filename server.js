@@ -65,6 +65,8 @@ app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, se
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
+
+//OFFLINE TEST
 // app.get('/signin',(req,res) => {
 //   sesh = req.session;
 //   var email = "alex@gmail.com";
@@ -75,7 +77,6 @@ app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcry
 //   });
   
 // });
-
 
 
 

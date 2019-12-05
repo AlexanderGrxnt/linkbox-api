@@ -11,6 +11,8 @@
     <link rel="stylesheet" id="dm-fonts-css"
         href="https://fonts.googleapis.com/css?family=Work+Sans:300,500,700,800|Material+Icons" type="text/css"
         media="all">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+        integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
 </head>
 
 <body>
@@ -21,9 +23,11 @@
 
     <section class="phone-container">
 
-        <div class="arrow arrow-up"></div>
-        <div class="arrow arrow-down"></div>
+
         <div class="controls">
+            <div class="arrow arrow-up"></div>
+            <div class="arrow arrow-down"></div>
+
             <div class="colours top-colour">
                 <label for="base-top">Top:</label>
                 <input class="colour-picker" id="base-top" type="color" name="base-top" value="#72A1E7">
@@ -47,17 +51,15 @@
             <div>
                 <img class="logo" src="./logos/olive_tree.png" alt="logo">
             </div>
-            <!-- <div class="profile-background"> -->
-                <div class="image-cropper">
-                    <img class="profile" id="profile-pic" src="./logos/plus_image.png" alt="profile">
-                </div>
-            <!-- </div> -->
+
+            <div class="image-cropper">
+                <img class="profile" id="profile-pic" src="./logos/plus_image.png" alt="profile">
+            </div>
+
             <div class="profile-modal">
                 <input class="username-input" type="text" name="userM" id="userM" placeholder="Username" required>
                 <div class="social-btns">
-                    <p class="instagramM">Instagram
-                            
-                    </p>
+                    <p class="instagramM">Instagram</p>
                     <p id="or">or</p>
                     <p class="twitterM">Twitter</p>
                 </div>
@@ -68,11 +70,26 @@
         <content>
             <div class="link"><img class="media facebook" src="logos/facebook_logo.png" alt="facebook"></div>
             <div class="link"><img class="media instagram" src="./logos/Instagram_logo.png" alt="facebook"></div>
-            <div class="link"><img class="media twitter" src="./logos/twitter_logo.png" alt="facebook"></div>
-            <div class="link"><img class="media gmail" src="./logos/gmail_logo.png" alt="facebook"></div>
-            <div class="link"><img class="media snapchat" src="./logos/snapchat_logo.png" alt="facebook"></div>
             <div class="link"><img class="media youtube" src="./logos/youtube_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media twitter" src="./logos/twitter_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media snapchat" src="./logos/snapchat_logo.png" alt="facebook"></div>
+            <div class="link"><img class="media gmail" src="./logos/gmail_logo.png" alt="facebook"></div>
         </content>
+
+        <div class="link-modal">
+            <input class="link-input" type="text" name="linkM" id="linkM" placeholder="Enter URL" required>
+            <div class="link-submit">Add</div>
+        </div>
+
+        <div class="logo-modal">
+            <select id="logoM" name="logos" >
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="youtube">Youtube</option>
+                <option value="twitter">Twitter</option>
+              </select>
+              <div class="logo-submit">Add</div>
+        </div>
 
         <div class="edit-buttons">
             <p class="preview">Preview</p>
