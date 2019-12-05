@@ -185,7 +185,7 @@ function deleteButtonClicked(linkNum, self) {
   self.previousElementSibling.addEventListener('animationend', deleteMedia);
   self.previousElementSibling.className += ' media-shake';
   linkArr[linkNum] = null;
-  self.previousElementSibling.removeEventListener('click', mediaEvent);
+  //self.previousElementSibling.removeEventListener('click', mediaEvent);
 }
 
 function deleteMedia() {
