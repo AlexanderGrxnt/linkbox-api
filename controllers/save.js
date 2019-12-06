@@ -9,6 +9,7 @@ const handleSave = (req, res, db, sesh) => {
     }).then(user => {
         res.send('Registered!');
         console.log("registered");
+        sesh.profile_img = profileAddress;
     }).catch(err => res.status(400).json('unable to save'))
       
 }
