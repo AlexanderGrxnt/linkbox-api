@@ -69,6 +69,9 @@ app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, se
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
+app.post('/signout', (req, res) => { signout.handleSignout(req, res, db, sesh) })
+
+
 app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
 // app.put('/save', (req, res) => { 
 //       res.write('<h1>login first.</h1>');
