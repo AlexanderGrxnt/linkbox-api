@@ -16,6 +16,7 @@ const handleSignin = (req, res, db, bcrypt, sesh) => {
                 sesh = req.session; 
                 sesh.email = user[0].email;
                 sesh.username = user[0].username;
+                sesh.profile_img = user[0].profile_img;
                 res.redirect('/profile');
             })
           .catch(err => res.status(400).json('unable to get user'))

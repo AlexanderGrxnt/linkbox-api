@@ -52,9 +52,11 @@ app.get('/profile',function(req,res){
     if(sesh.email) {
       var email = sesh.email;
       var username = sesh.username;
+      var profile_img = sesh.username;
       res.render("profile.ejs", {
         email:email,
-        username: username
+        username: username,
+        profile_img: profile_img
       });
     } else {
       res.write('<h1>login first.</h1>');
