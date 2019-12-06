@@ -7,9 +7,11 @@ const handleSave = (req, res, db, sesh) => {
     db('users').where('username',username).update({
         profile_img:profileAddress
     }).then(user => {
-        res.send('Registered!');
+        sesh = req.session; 
+        
         console.log("registered");
         sesh.profile_img = profileAddress;
+        res.send('Registered!');
     }).catch(err => res.status(400).json('unable to save'))
       
 }
