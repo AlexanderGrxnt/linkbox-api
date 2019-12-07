@@ -207,6 +207,17 @@ function saveClicked(){
   })
 }
 
+// function signOutClicked(){
+//   console.log("signout");
+//   fetch(`${domain}/signout`, {
+//     method: 'post',
+//     headers: { 'Content-Type': 'application/json' },
+//     // body: JSON.stringify({
+//     //   profileAddress: profileURL
+//     // })
+// })
+// }
+
 
 profilePic.addEventListener("click", showProfileModal);
 checkmark.addEventListener("animationend", hideProfileModal);

@@ -9,6 +9,7 @@ const session = require('express-session');
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const save = require('./controllers/save');
+const signout = require('./controllers/signout');
 
 const db = knex({
     client: 'pg',
@@ -69,7 +70,12 @@ app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, se
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
-app.get('/signout', (req, res) => { signout.handleSignout(req, res, db, sesh) })
+app.get('/signout', (req, res, next) => { 
+  signout.handleSignout(req, res, db, sesh) 
+  //res.sendFile('index.html', {root : __dirname + '/views'});
+  //res.redirect("/");
+  // next();
+})
 
 
 app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
@@ -84,9 +90,11 @@ app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
 //   sesh = req.session;
 //   var email = "alex@gmail.com";
 //   var username = "AlexanderGrxnt";
+//   var profile_img = "www.google.com";
 //   res.render("profile.ejs", {
 //     email: email,
-//     username: username
+//     username: username,
+//     profile_img: profile_img
 //   });
   
 // });
