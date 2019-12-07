@@ -23,6 +23,7 @@ let logoArr = ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'email
 let previewMode = false;
 let currentMedia;
 const domain = String(window.location.origin);
+const saved = document.getElementsByClassName('saved')[0];
 
 //GET PROFILE PIC
 function getProfileInstagram() {
@@ -202,9 +203,17 @@ function saveClicked(){
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        profileAddress: profileURL
+        profileAddress: profileURL,
+        linkArr: linkArr,
+        logoArr: logoArr
       })
   })
+  .then(json => {
+    console.log("fetched");
+    saved.style.visibility = 'visible';
+  })
+  .then(setTimeout("saved.style.visibility = 'hidden'", 2000))
+  
 }
 
 // function signOutClicked(){

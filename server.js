@@ -70,19 +70,11 @@ app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, se
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
-app.get('/signout', (req, res, next) => { 
-  signout.handleSignout(req, res, db, sesh) 
-  //res.sendFile('index.html', {root : __dirname + '/views'});
-  //res.redirect("/");
-  // next();
+app.get('/signout', (req, res, next) => { signout.handleSignout(req, res, db, sesh) 
 })
 
-
 app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
-// app.put('/save', (req, res) => { 
-//       res.write('<h1>login first.</h1>');
-//       res.end('<a href="views/index.html">Login</a>');
-//  })
+//app.put('/save', (req, res) => { res.end('ended') })
 
 
 //OFFLINE TEST
@@ -90,7 +82,7 @@ app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
 //   sesh = req.session;
 //   var email = "alex@gmail.com";
 //   var username = "AlexanderGrxnt";
-//   var profile_img = "www.google.com";
+//   var profile_img = "https://picsum.photos/200";
 //   res.render("profile.ejs", {
 //     email: email,
 //     username: username,
