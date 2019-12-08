@@ -1,4 +1,5 @@
 
+
 console.log("js found");
 
 //PROFILE PIC
@@ -189,7 +190,7 @@ function deleteButtonClicked(linkNum, self) {
   self.previousElementSibling.addEventListener('animationend', deleteMedia);
   self.previousElementSibling.className += ' media-shake';
   linkArr[linkNum] = null;
-  logoArr[link] = 'circle';
+  logoArr[linkNum] = 'circle';
   //self.previousElementSibling.removeEventListener('click', mediaEvent);
 }
 
