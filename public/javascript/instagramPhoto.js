@@ -240,7 +240,7 @@ function fetchData(){
     return response.json();
   }).then(data => {
     // Work with JSON data here
-    profileURL = data;
+    profileURL = data.profileImg;
     console.log(profileURL);
   }).catch(err => {
     // Do something for an error here
