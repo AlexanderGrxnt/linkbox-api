@@ -1,4 +1,3 @@
-import { link } from "fs";
 
 console.log("js found");
 
