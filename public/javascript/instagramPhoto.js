@@ -233,3 +233,19 @@ checkmark.addEventListener("animationend", hideProfileModal);
 previewButton.addEventListener("click", previewClicked);
 saveButton.addEventListener("click", saveClicked);
 
+
+function fetchData(){
+  fetch(`${domain}/data`)
+  .then(response => {
+    return response.json();
+  }).then(data => {
+    // Work with JSON data here
+    console.log(data);
+  }).catch(err => {
+    // Do something for an error here
+    console.log("error");
+  });
+  
+}
+
+fetchData();

@@ -55,6 +55,9 @@ app.get('/profile',function(req,res){
       var email = sesh.email;
       var username = sesh.username;
       var profile_img = sesh.profile_img;
+      if(profile_img === null)
+        profile_img = "/logos/add_image.png";
+
       res.render("profile.ejs", {
         email:email,
         username: username,
@@ -66,15 +69,21 @@ app.get('/profile',function(req,res){
     }
   });
 
-app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, sesh) })
+//app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, sesh) })
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
 app.get('/signout', (req, res, next) => { signout.handleSignout(req, res, db, sesh) 
 })
 
-app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
-//app.put('/save', (req, res) => { res.end('ended') })
+//app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
+app.put('/save', (req, res) => { res.end('ended') })
+
+app.get('/data', (req, res) => {
+
+  //var profileImg = {profileImg: req.session.profile_img};
+  res.json({profileImg: req.session.profile_img});
+})
 
 
 //OFFLINE TEST
@@ -86,9 +95,8 @@ app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
 //   res.render("profile.ejs", {
 //     email: email,
 //     username: username,
-//     profile_img: profile_img
+//     profile_img: JSON.stringify(profile_img)
 //   });
-  
 // });
 
 

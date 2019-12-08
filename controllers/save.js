@@ -7,6 +7,7 @@ const handleSave = (req, res, db, sesh) => {
     console.log(profileAddress);
     db('users').where('username',username).update({
         profile_img:profileAddress,
+        
         linkarr:linkArr,
         logoarr:logoArr
     }).then(user => {
