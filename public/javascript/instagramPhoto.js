@@ -256,8 +256,8 @@ fetchData();
 
 function spreadURLs(){
     let mediaArr = [...media];
-    for(let i = 0; i < linkArr.length; i++){
-      mediaArr[i].src = linkArr[i];
+    for(let i = 0; i < logoArr.length; i++){
+      mediaArr[i].src = `${domain}/logos/${logoArr[i]}_logo.png`;
     }
     console.log(mediaArr[3].src);
 }
