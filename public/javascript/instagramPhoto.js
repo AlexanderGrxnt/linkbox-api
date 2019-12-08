@@ -241,7 +241,9 @@ function fetchData(){
   }).then(data => {
     // Work with JSON data here
     profileURL = data.profileImg;
-    console.log(profileURL);
+    linkArr = data.linkArr;
+    logoArr = data.logoArr;
+    console.log(logoArr);
   }).catch(err => {
     // Do something for an error here
     console.log("error");
