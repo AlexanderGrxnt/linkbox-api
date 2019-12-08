@@ -244,6 +244,7 @@ function fetchData(){
     linkArr = data.linkArr;
     logoArr = data.logoArr;
     console.log(logoArr);
+    spreadURLs();
   }).catch(err => {
     // Do something for an error here
     console.log("error");
@@ -252,3 +253,13 @@ function fetchData(){
 }
 
 fetchData();
+
+function spreadURLs(){
+    let mediaArr = [...media];
+    for(let i = 0; i < linkArr.length; i++){
+      mediaArr[i].src = linkArr[i];
+    }
+    console.log(mediaArr[3].src);
+}
+
+
