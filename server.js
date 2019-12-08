@@ -69,15 +69,15 @@ app.get('/profile',function(req,res){
     }
   });
 
-//app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, sesh) })
+app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, sesh) })
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
 app.get('/signout', (req, res, next) => { signout.handleSignout(req, res, db, sesh) 
 })
 
-//app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
-app.put('/save', (req, res) => { res.end('ended') })
+app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
+//app.put('/save', (req, res) => { res.end('ended') })
 
 app.get('/data', (req, res) => {
 
