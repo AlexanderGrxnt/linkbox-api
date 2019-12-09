@@ -56,7 +56,7 @@ app.get('/profile',function(req,res){
       var username = sesh.username;
       var profile_img = sesh.profile_img;
       if(profile_img === null)
-        profile_img = "/logos/add_image.png";
+        profile_img = "/logos/plus_image.png";
 
       res.render("profile.ejs", {
         email:email,
@@ -94,6 +94,7 @@ app.get('/data', (req, res) => {
 //   var email = "alex@gmail.com";
 //   var username = "AlexanderGrxnt";
 //   var profile_img = "https://picsum.photos/200";
+  
 //   res.render("profile.ejs", {
 //     email: email,
 //     username: username,
@@ -101,13 +102,41 @@ app.get('/data', (req, res) => {
 //   });
 // });
 
+// app.get('/data', (req, res) => {
+//   var profile_img = "https://picsum.photos/200";
+//   res.json({
+//     profile_img: JSON.stringify(profile_img),
+//     linkArr: req.session.linkArr,
+//     logoArr: ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'gmail']
+//   });
+// })
+
+//END OF OFFLINE TEST
 
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`app is running on port ${process.env.PORT}`);
 })
 
-// app.get('/:username', (req, res) => {
-//     res.render('views/alexander');
-// })
+app.get('/:username', (req, res) => {
+    const userID = req.params.username;
+
+    db.select('profile_img', 'linkarr', 'logoarr').from('users')
+   .where('username', '=', LOWER(userID))
+   .then(data => {
+
+      res.render("alexander.ejs", {
+        
+        username: userID,
+        profile_img: data[0].profile_img
+      });
+
+   })
+    
+    // var profile_img = sesh.profile_img;
+    // if(profile_img === null)
+    //   profile_img = "/logos/profile.png";
+    
+    
+})
 

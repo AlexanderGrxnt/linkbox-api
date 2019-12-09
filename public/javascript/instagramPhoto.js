@@ -21,7 +21,7 @@ let logoModal = document.getElementsByClassName('logo-modal')[0];
 let linkSubmit = document.getElementsByClassName('link-submit')[0];
 let logoSubmit = document.getElementsByClassName('logo-submit')[0];
 let linkArr = new Array(6).fill(null);
-let logoArr = ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'email'];
+let logoArr = ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'gmail'];
 let previewMode = false;
 let currentMedia;
 const domain = String(window.location.origin);
