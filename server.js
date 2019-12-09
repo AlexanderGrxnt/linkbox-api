@@ -122,7 +122,7 @@ app.get('/:username', (req, res) => {
     const userID = req.params.username;
 
     db.select('profile_img', 'linkarr', 'logoarr').from('users')
-   .where('username', '=', LOWER(userID))
+   .where('username', '=', userID)
    .then(data => {
 
       res.render("alexander.ejs", {
