@@ -80,10 +80,15 @@ app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
 //app.put('/save', (req, res) => { res.end('ended') })
 
 app.get('/data', (req, res) => {
+  let logoArray = req.session.logoArr;
+  if(logoArray === null){
+      logoArray = ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'gmail'];
+  }
   res.json({
+    
     profileImg: req.session.profile_img,
     linkArr: req.session.linkArr,
-    logoArr: req.session.logoArr
+    logoArr: logoArray
   });
 })
 
@@ -124,11 +129,11 @@ app.get('/:username', (req, res) => {
     db.select('profile_img', 'linkarr', 'logoarr').from('users')
    .where('username', '=', userID)
    .then(data => {
-
+    console.log(data[0]);
       res.render("alexander.ejs", {
         
         username: userID,
-        profile_img: data[0].profile_img
+        //profile_img: data[0].profile_img
       });
 
    })
