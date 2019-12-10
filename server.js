@@ -103,7 +103,7 @@ app.get('/:username', (req, res) => {
       let profile_img = data[0].profile_img;
       if (profile_img === null)
         profile_img = "/logos/profile.png";
-      res.render("alexander.ejs", {
+      res.render("live_page.ejs", {
         profile_img: profile_img,
         username: userID,
       });
