@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile Page: <%= username %></title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" id="dm-fonts-css"
+        href="https://fonts.googleapis.com/css?family=Work+Sans:300,500,700,800|Material+Icons" type="text/css"
+        media="all">
+
+</head>
+
+<body>
+
+    <section class="phone-container">
+
+        <div class="top-dip">
+            <div class="camera"></div>
+            <div class="camera"></div>
+        </div>
+        <div class=" home-button"></div>
+        <div class="phone-button volume-up"></div>
+        <div class="phone-button volume-down"></div>
+        <div class="phone-button power-button"></div>
+        
+        <nav>
+            <div>
+                <img class="logo" src="./logos/olive_tree.png" alt="logo">
+            </div>
+
+            <div class="image-cropper">
+                <img class="profile" id="profile-pic" src="<%= profile_img %>" alt="profile">
+            </div>
+
+            <div class="name">@<%= username %></div>
+        </nav>
+
+        <content>
+            <div class="link"><img class="media facebook" src="logos/circle_logo.png" alt="logo 1"></div>
+            <div class="link"><img class="media instagram" src="./logos/circle_logo.png" alt="logo 2"></div>
+            <div class="link"><img class="media youtube" src="./logos/circle_logo.png" alt="logo 3"></div>
+            <div class="link"><img class="media twitter" src="./logos/circle_logo.png" alt="logo 4"></div>
+            <div class="link"><img class="media snapchat" src="./logos/circle_logo.png" alt="logo 5"></div>
+            <div class="link"><img class="media gmail" src="./logos/circle_logo.png" alt="logo 6"></div>
+        </content>
+
+    </section>
+
+    <script src="./javascript/live_script.js"></script>
+
+
+</body>
+
+</html>
