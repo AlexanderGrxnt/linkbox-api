@@ -131,7 +131,7 @@ app.get('/:username', (req, res) => {
    .then(data => {
     console.log(data[0]);
       res.render("alexander.ejs", {
-        
+        profile_img: "/logos/profile.png",
         username: userID,
         //profile_img: data[0].profile_img
       });
