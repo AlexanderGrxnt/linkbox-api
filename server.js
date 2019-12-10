@@ -126,10 +126,10 @@ app.listen(process.env.PORT || 3000, () => {
 app.get('/:username', (req, res) => {
     const userID = req.params.username;
 
-    db.select('profile_img', 'linkarr', 'logoarr').from('users')
+    db.select('profile_img').from('users')
    .where('username', '=', userID)
    .then(data => {
-    console.log(data[0]);
+    console.log(data[0].profile_img);
       res.render("alexander.ejs", {
         profile_img: "/logos/profile.png",
         username: userID,
