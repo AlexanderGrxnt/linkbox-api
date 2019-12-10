@@ -129,9 +129,9 @@ app.get('/:username', (req, res) => {
     db.select('profile_img').from('users')
    .where('username', '=', userID)
    .then(data => {
-    console.log(data[0].profile_img);
+    //console.log(data[0].profile_img);
       res.render("alexander.ejs", {
-        profile_img: "/logos/profile.png",
+        profile_img: data[0].profile_img,
         username: userID,
         //profile_img: data[0].profile_img
       });
