@@ -69,6 +69,10 @@ app.get('/profile', function (req, res) {
   }
 });
 
+app.get('/register', (req, res) => {
+  res.sendFile('register.html', { root: __dirname + '/views' });
+});
+
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt, sesh) })
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt, sesh) })
