@@ -321,6 +321,7 @@ font-size: 100px;
         width: 100vw;
         position: fixed;
         top: 0;
+        z-index: 2;
     }
 
     .title{
@@ -348,16 +349,19 @@ font-size: 100px;
         margin: 2vw;
         width: 15vw;
         height: 15vw;
+        z-index: 3;
     }
 
     .name{
         font-size: 6vw;
+        z-index: 3;
     }
 
     .logo{
         width: auto;
         height: 75%;
         padding: 2%;
+        z-index: 3;
     }
 
     /* .profile{

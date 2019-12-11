@@ -102,14 +102,14 @@ function previewClicked() {
   colourPickers.style.visibility = 'hidden';
   for (var j = 0; j < deleteButtons.length; j++) {
     //let domain = String(window.location.origin);
-    let source = `${domain}/logos/add_image.png`;
+    let source = `${domain}/logos/add_logo.png`;
     let sibling = deleteButtons[j].previousElementSibling;
     let parent = deleteButtons[j].parentElement;
 
     if (sibling.src === source)
       sibling.src = "./logos/circle.png";
     else if (sibling.src === `${domain}/logos/circle.png`)
-      sibling.src = "./logos/add_image.png";
+      sibling.src = "./logos/add_logo.png";
 
     if (deleteButtons[j].style.visibility !== 'hidden')
       deleteButtons[j].style.visibility = 'hidden';
@@ -134,7 +134,7 @@ function showLinkModal(i) {
   if(previewMode) return;
 
   //let domain = String(window.location.origin);
-  let source = `${domain}/logos/add_image.png`;
+  let source = `${domain}/logos/add_logo.png`;
   currentMedia = i;
   if(media[i].src !== source){
       linkModal.style.visibility = 'visible';
@@ -195,7 +195,7 @@ function deleteButtonClicked(linkNum, self) {
 }
 
 function deleteMedia() {
-  this.src = "./logos/add_image.png";
+  this.src = "./logos/add_logo.png";
   this.classList.remove("media-shake");
 }
 //END OF DELETE
