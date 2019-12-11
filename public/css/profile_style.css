@@ -105,7 +105,7 @@ nav{
     visibility: hidden;
     cursor: alias;
     z-index: 3;
-    background-color: rgba(128, 128, 128, 0.513);
+    background-color: #80808083;
 }
 
 .profile-modal{
