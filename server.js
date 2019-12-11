@@ -108,10 +108,15 @@ app.get('/:username', (req, res) => {
         if(linkArr[i] === null)
           linkArr[i] = '/';
       }
+      let logoArr = data[0].logoarr;
+      for(let i=0; i < logoArr.length; i++){
+        if(logoArr[i] === 'add')
+          logoArr[i] = 'circle';
+      }
       res.render("live_page.ejs", {
         profile_img: profile_img,
         linkArr: linkArr,
-        logoArr: data[0].logoarr,
+        logoArr: logoArr,
         username: userID,
       });
     })
