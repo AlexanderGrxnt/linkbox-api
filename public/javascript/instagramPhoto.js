@@ -190,7 +190,7 @@ function deleteButtonClicked(linkNum, self) {
   self.previousElementSibling.addEventListener('animationend', deleteMedia);
   self.previousElementSibling.className += ' media-shake';
   linkArr[linkNum] = null;
-  logoArr[linkNum] = 'circle';
+  logoArr[linkNum] = 'add';
   //self.previousElementSibling.removeEventListener('click', mediaEvent);
 }
 

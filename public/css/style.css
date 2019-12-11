@@ -81,8 +81,6 @@ font-size: 100px;
 
 body{
     margin: 0;
-    
-    /* background: linear-gradient(#c3ece7, #e9a5bc); */
     background:
     radial-gradient(black 3px, transparent 4px),
     radial-gradient(black 3px, transparent 4px),
@@ -122,15 +120,12 @@ body{
 
 nav{
     display: flex;
-    
     position: absolute;
     padding: 0px 0px 0px 0px;
     background-color: white;
     margin: 0;
     box-shadow: 5px 1px 12px rgb(100, 99, 99);
     width: 370px;
-    /* border-top-left-radius: 30px;
-    border-top-right-radius: 30px; */
 }
 
 .logo{
@@ -138,33 +133,30 @@ nav{
     height: 50px;
     position: absolute;
     right: 0px;
-   
     padding: 0.6rem;
     padding-bottom: 0.2rem;
     cursor: pointer;
 }
 
-.profile-background{
+/* .profile-background{
     width: 4rem;
     height: 4rem;
-        background: #f09433; 
-      background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-      background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-      border-radius: 50%;
-      margin: 10px 10px;
-}
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    border-radius: 50%;
+    margin: 10px 10px;
+} */
 
 .profile{
-    
     display: inline;
-  margin: 0 auto;
-  margin-left: 0%; 
-  height: 100%;
-  width: auto;
-  cursor: pointer;
-  
+    margin: 0 auto;
+    margin-left: 0%; 
+    height: 100%;
+    width: auto;
+    
 }
 
 .image-cropper {
@@ -177,21 +169,16 @@ nav{
     /* border: solid 0px rgba(93, 93, 93, 0.767); */
 }
 
-
-.image-cropper:hover{
-    transform: Scale(1.1);
-}
-
-
-  
+ 
 .name{
    
    font-size: 1.5rem;
    font-weight: 700;
-   line-height: 2.5;
+   line-height: 2.7;
    color: #555555;
    padding-top: 7px;
 }
+
 
 content{
     display: grid;
@@ -312,14 +299,14 @@ font-size: 100px;
 
 
 
-  @media only screen and (max-device-width: 480px){
+@media only screen and (max-device-width: 480px){
     .phone-container{
-        width: 99vw;
-        margin-left: -2vw;
-        margin-top: -2vh;
+        width: 100vw;
+        margin-left: -0vw;
+        margin-top: 0vh;
         height: 102vh;
-        border-width: 15px 2.5vw 1px 2.5vw;
-        
+        border-width: 0px 0vw 0px 0vw;
+        box-shadow: none;
     }
 
     .top-dip{
@@ -331,7 +318,9 @@ font-size: 100px;
     }
 
     nav{
-        width: 99vw;
+        width: 100vw;
+        position: fixed;
+        top: 0;
     }
 
     .title{
@@ -346,7 +335,7 @@ font-size: 100px;
 
     content{
         padding: 0 0;
-        width: 90vw;
+        width: 100vw;
         top: 80px;
     }
 
@@ -357,8 +346,8 @@ font-size: 100px;
 
     .image-cropper{
         margin: 2vw;
-        width: 2.8rem;
-        height: 2.8rem;
+        width: 15vw;
+        height: 15vw;
     }
 
     .name{
@@ -366,10 +355,15 @@ font-size: 100px;
     }
 
     .logo{
-        width: 2.8rem;
-        height: 2.6rem;
-        padding: 0.3rem;
+        width: auto;
+        height: 75%;
+        padding: 2%;
     }
+
+    /* .profile{
+        height: 75%;
+        width: auto;
+    } */
   }
 
 
