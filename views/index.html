@@ -9,28 +9,29 @@
     media="all">
     <title>Linkbox Login</title>
     <style>
-            /* .body{
-                font-family: "Work Sans";
-            } */
+            body{
+                background: url('./logos/splash.jpg') no-repeat center center fixed; 
+                background-size: cover;
+            }
             
             .login-form {
                 width: 300px;
                 margin: 25vh auto 5vh auto;
-                font-family: Tahoma, Geneva, sans-serif;
-                background-color: rgb(106, 204, 243);
-                padding: 2rem;
-                padding-top: 7rem;
-                padding-bottom: 4rem;
-                position: relative;
-                box-shadow: 1px 1px 5px 3px rgb(109, 109, 109);
                 font-family: "Work Sans";
+                background-color: rgb(255, 255, 255);
+                padding: 2rem;
+                padding-top: 4rem;
+                padding-bottom: 2.5rem;
+                position: relative;
+                box-shadow: 1px 1px 5px  rgb(77, 77, 77);
+                border-radius: 5px;
             }
-            .login-form h1 {
+            /* .login-form h1 {
                 text-align: center;
                 color: #4d4d4d;
                 font-size: 24px;
-                padding: 20px 0 20px 0;
-            }
+                padding: 10px 0 20px 0;
+            } */
             .login-form input[type="password"],
             .login-form input[type="text"] {
                 width: 100%;
@@ -39,11 +40,13 @@
                 margin-bottom: 15px;
                 box-sizing:border-box;
                 font-family: "Work Sans";
+                box-shadow: 1px 1px 3px rgb(104, 104, 104);
+                
             }
             .login-form input[type="submit"] {
                 width: 100%;
                 padding: 15px;
-                background-color: #5f6162;
+                background-color: #6d6e6e;
                 border: 0;
                 box-sizing: border-box;
                 cursor: pointer;
@@ -51,11 +54,13 @@
                 color: #ffffff;
                 font-size: 1.2rem;
                 font-family: "Work Sans";
+                box-shadow: 1px 1px 3px rgb(121, 121, 121);
+                border-radius: 2px;
             }
 
             .logo-outline{
                 position: absolute;
-                top: -2rem;
+                top: -1rem;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 12.5rem;
@@ -63,7 +68,7 @@
                 background-color: white;
                 border-radius: 50%;
                 padding: 1rem;
-                box-shadow: 1px 1px 5px rgb(131, 131, 131);
+                box-shadow: 0px 0px 5px rgb(88, 88, 88);
             }
             
             .logo{
@@ -71,15 +76,30 @@
                 width: 10rem;
                 height: 10rem;
                 padding: 1rem;
-                border: solid 5px rgb(104, 104, 104);
+                border: solid 5px #6d6e6e;
                 border-radius: 50%;
                 background-color: white;
             }
 
             .register{
-                color: white;
-                line-height: 1.6rem;
+                color: rgb(49, 49, 49);
+                line-height: 2.3rem;
+                
             }
+
+            .title{
+                text-align: center;
+                font-size: 3rem;
+                color: rgb(54, 54, 54);
+                margin-bottom: 10px;
+            }
+            @media only screen and (max-device-width: 480px){
+                .login-form {
+                    width: 70vw;
+                    margin: 24vh auto auto auto; 
+                }
+            }
+            
             </style>
         </head>
         <body>
@@ -87,14 +107,14 @@
             
             <div class="login-form">
                <div class="logo-outline"><img class="logo" src="./logos/olive_tree.png" alt="logo"> </div>
-                
+                <h2 class="title">LinkBox.</h2>
                 <form action="/signin" method="POST">
                     <input type="text" name="email" id="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
                     <input type="submit" value="Login">
                 </form>
                 
-                <span class="register">Not yet a user? <a href="/register"> Register</a></span>
+                <span class="register">Not yet a user? <a href="/register"> Register</a> for free!</span>
             </div>
             <script>
 
