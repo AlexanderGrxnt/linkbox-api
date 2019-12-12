@@ -265,4 +265,15 @@ function spreadURLs(){
     console.log(mediaArr[3].src);
 }
 
+function copyURL() {
+  /* Get the text field */
+  var copyText = document.getElementById("urlBar");
 
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+}

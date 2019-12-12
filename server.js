@@ -83,86 +83,86 @@ app.get('/signout', (req, res, next) => {
 
 //START OF ONLINE ONLY CODE
 
-app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
-
-app.get('/data', (req, res) => {
-  let logoArray = req.session.logoArr;
-  if (logoArray === null) {
-    logoArray = ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'gmail'];
-  }
-  res.json({
-
-    profileImg: req.session.profile_img,
-    linkArr: req.session.linkArr,
-    logoArr: logoArray
-  });
-})
-
-app.get('/:username', (req, res) => {
-  const userID = req.params.username;
-
-  db.select('profile_img', 'logoarr', 'linkarr').from('users')
-    .where('username', '=', userID)
-    .then(data => {
-      let profile_img = data[0].profile_img;
-      if (profile_img === null)
-        profile_img = "/logos/profile.png";
-      let linkArr = data[0].linkarr;
-      for(let i=0; i < linkArr.length; i++){
-        if(linkArr[i] === null)
-          linkArr[i] = '/';
-      }
-      let logoArr = data[0].logoarr;
-      for(let i=0; i < logoArr.length; i++){
-        if(logoArr[i] === 'add')
-          logoArr[i] = 'circle';
-      }
-      res.render("live_page.ejs", {
-        profile_img: profile_img,
-        linkArr: linkArr,
-        logoArr: logoArr,
-        username: userID,
-      });
-    })
-})
-
-
-//END OF ONLINE ONLY CODE
-
-//OFFLINE TEST
-// app.put('/save', (req, res) => { res.end('ended') })
-
-// app.get('/signin',(req,res) => {
-//   sesh = req.session;
-//   var email = "alex@gmail.com";
-//   var username = "AlexanderGrxnt";
-//   var profile_img = "https://picsum.photos/200";
-
-//   res.render("profile.ejs", {
-//     email: email,
-//     username: username,
-//     profile_img: JSON.stringify(profile_img)
-//   });
-// });
+// app.put('/save', (req, res) => { save.handleSave(req, res, db, sesh) })
 
 // app.get('/data', (req, res) => {
-//   var profile_img = "https://picsum.photos/200";
+//   let logoArray = req.session.logoArr;
+//   if (logoArray === null) {
+//     logoArray = ['facebook', 'Instagram', 'youtube', 'twitter', 'snapchat', 'gmail'];
+//   }
 //   res.json({
-//     profile_img: JSON.stringify(profile_img),
-//     linkArr: ['/', '/', 'www.google.com', '/', '/', '/'],
-//     logoArr: ['facebook', 'Instagram', 'youtube', 'twitter', 'gmail', 'gmail']
+
+//     profileImg: req.session.profile_img,
+//     linkArr: req.session.linkArr,
+//     logoArr: logoArray
 //   });
 // })
 
 // app.get('/:username', (req, res) => {
 //   const userID = req.params.username;
-//   res.render("live_page.ejs", {
-//     profile_img: "/logos/profile.png",
-//     username: userID,
-//     linkArr: ['/', '/', 'www.google.com', '/', '/', '/'],
-//     logoArr: ['facebook', 'Instagram', 'youtube', 'twitter', 'gmail', 'gmail']
-//   });
+
+//   db.select('profile_img', 'logoarr', 'linkarr').from('users')
+//     .where('username', '=', userID)
+//     .then(data => {
+//       let profile_img = data[0].profile_img;
+//       if (profile_img === null)
+//         profile_img = "/logos/profile.png";
+//       let linkArr = data[0].linkarr;
+//       for(let i=0; i < linkArr.length; i++){
+//         if(linkArr[i] === null)
+//           linkArr[i] = '/';
+//       }
+//       let logoArr = data[0].logoarr;
+//       for(let i=0; i < logoArr.length; i++){
+//         if(logoArr[i] === 'add')
+//           logoArr[i] = 'circle';
+//       }
+//       res.render("live_page.ejs", {
+//         profile_img: profile_img,
+//         linkArr: linkArr,
+//         logoArr: logoArr,
+//         username: userID,
+//       });
+//     })
 // })
+
+
+//END OF ONLINE ONLY CODE
+
+//OFFLINE TEST
+app.put('/save', (req, res) => { res.end('ended') })
+
+app.get('/signin',(req,res) => {
+  sesh = req.session;
+  var email = "alex@gmail.com";
+  var username = "AlexanderGrxnt";
+  var profile_img = "https://picsum.photos/200";
+
+  res.render("profile.ejs", {
+    email: email,
+    username: username,
+    profile_img: JSON.stringify(profile_img)
+  });
+});
+
+app.get('/data', (req, res) => {
+  var profile_img = "https://picsum.photos/200";
+  res.json({
+    profile_img: JSON.stringify(profile_img),
+    linkArr: ['/', '/', 'www.google.com', '/', '/', '/'],
+    logoArr: ['facebook', 'Instagram', 'youtube', 'twitter', 'gmail', 'gmail']
+  });
+})
+
+app.get('/:username', (req, res) => {
+  const userID = req.params.username;
+  res.render("live_page.ejs", {
+    profile_img: "/logos/profile.png",
+    username: userID,
+    linkArr: ['/', '/', 'www.google.com', '/', '/', '/'],
+    logoArr: ['facebook', 'Instagram', 'youtube', 'twitter', 'gmail', 'gmail']
+  });
+})
 
 //END OF OFFLINE TEST
 

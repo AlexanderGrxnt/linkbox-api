@@ -555,6 +555,19 @@ font-size: 100px;
     /* border: solid 2px white; */
 }
 
+.url-input{
+    position: absolute;
+    bottom: -180px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    display: flex;
+}
+
+.url-input input{
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+
 @keyframes checkmark {
     0% {
       height: 0;
@@ -596,7 +609,7 @@ font-size: 100px;
     .phone-container{
         
         width: 90vw;
-        margin-bottom: 80px;
+        margin-bottom: 120px;
         border-width: 15px 2.5vw 50px 2.5vw;
     }
 
@@ -688,5 +701,10 @@ font-size: 100px;
         width: 2.8rem;
         height: 2.6rem;
         padding: 0.3rem;
+    }
+
+    .url-input{
+        
+        bottom: -110px;
     }
   }
