@@ -32,7 +32,8 @@ const handleRegister = (req, res, db, bcrypt, sesh) => {
                         sesh.profile_img = user[0].profile_img;
                         sesh.linkArr = user[0].linkarr;
                         sesh.logoArr = user[0].logoarr;
-                        res.send('Registered!');
+                        // res.send('Registered!');
+                        res.redirect('/profile');
                     })
             })
             .then(trx.commit)
